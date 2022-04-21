@@ -1,2 +1,2 @@
 # SudokuSolver
-Implementing RL approach to solving sudoku as a combinatorial optimization problem
+Implementing different Sudoku solving methods leading up to attempting an RL approach to solving Sudoku as a combinatorial optimization problem
