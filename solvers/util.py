@@ -142,3 +142,18 @@ def display_board(board):
         if i % sqrt_n == sqrt_n - 1:
             output += '\n'
     print(output)
+
+
+def string_to_board(board):
+    """
+    Takes a board as a single line of integers and converts it into a numpy array
+
+    Args:
+        board: str, string of integers representing board in flattened row column order
+    """
+    board = [int(n) for n in board.strip()]
+    n = int(np.sqrt(len(board))) # n is now the length of a side of the board
+    board = [board[i:i+n] for i in range(0, len(board), n)]
+    board = np.array(board)
+    
+    return board

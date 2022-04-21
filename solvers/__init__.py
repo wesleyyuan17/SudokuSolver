@@ -1,1 +1,1 @@
-__all__ = ['backtrack', 'candidate_place_checking', 'lp']
+__all__ = ['backtrack', 'candidate_place_checking', 'linear_programming']
