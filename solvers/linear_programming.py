@@ -24,7 +24,7 @@ def linear_programming(board):
     prob = LpProblem('SudokuProblem')
 
     # the decision variables are created
-    choices = LpVariable.dict('Choice', (vals, rows, cols), cat='Binary')
+    choices = LpVariable.dicts('Choice', (vals, rows, cols), cat='Binary')
 
     # we do not define an objective function since none is needed
 
@@ -54,13 +54,13 @@ def linear_programming(board):
     prob.writeLP('Sudoku.lp')
 
     # problem is solved using PuLP's choiec of solver
-    prob.solve()
+    prob.solve(PULP_CBC_CMD(msg=0))
 
     # write solution to board
     for i in range(n):
         for j in range(n):
             for num in range(1, n+1):
                 if value(choices[num][i][j]) == 1:
-                    board[i, j] = n
+                    board[i, j] = num
 
     return LpStatus[prob.status]
